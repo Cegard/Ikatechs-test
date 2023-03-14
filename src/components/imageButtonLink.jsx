@@ -19,7 +19,7 @@ const ImgWithLinkButton = styled.div`
     -ms-transform: translate(-50%, -50%);
     background-color: #555;
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 0.75rem 1.5rem;
     border: none;
     cursor: pointer;

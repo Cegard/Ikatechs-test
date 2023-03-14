@@ -1,4 +1,5 @@
 import Header from "../components/header";
+import Footer from "../components/footer";
 import styled from "styled-components";
 import ImageButtonLink from "../components/imageButtonLink";
 
@@ -27,6 +28,7 @@ export default function Home() {
           btnText="hombres"
         />
       </CatsImageLinks>
+      <Footer />
     </>
   );
 }

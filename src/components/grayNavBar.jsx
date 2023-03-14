@@ -13,7 +13,7 @@ const StyledGrayNavBar = styled.div`
     text-decoration: none;
     color: #79797a;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 `;
 
