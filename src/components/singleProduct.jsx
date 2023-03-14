@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const ProductHeader = styled.div`
   display: flex;
@@ -67,6 +68,7 @@ const ProductActions = styled.div`
     padding-top: 1.5rem;
 
     .size {
+      cursor: pointer;
       font-size: 1rem;
       font-weight: bold;
       display: flex;
@@ -115,6 +117,9 @@ const ProductTexts = styled.div`
 `;
 
 export default function SingleProduct({product}) {
+
+  const [selectedSize, updateSize] = useState(0);
+
   return(
     <>
       <ProductHeader>
@@ -125,7 +130,7 @@ export default function SingleProduct({product}) {
               [...Array(6).keys()]
               .map(
                 (key) => <img
-                  id={key}
+                  key={key}
                   src={`/static/images/${product.foto}`}
                   className="subImage"
                   alt={product.nombre}
@@ -141,7 +146,13 @@ export default function SingleProduct({product}) {
           <div className="sizes">
             {
               [...Array(10).keys()]
-              .map((size) => <span className="size" id={size}> {(size + 10) * 5 / 10} </span>)
+              .map((size) => {
+                const newSize = 0.5 * size + 5;
+                
+                return <a className="size" key={size} onClick={() => { updateSize(newSize) }}>
+                  {newSize}
+                </a>
+              })
             }
           </div>
           <div className="addToCart">
