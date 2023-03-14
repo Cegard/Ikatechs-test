@@ -1,7 +1,6 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
 import styled from "styled-components";
 import ImageButtonLink from "../components/imageButtonLink";
+import Header from "../components/header";
 
 const CatsImageLinks = styled.div`
   display: flex;
@@ -18,17 +17,16 @@ export default function HomePage() {
         <ImageButtonLink
           imgSource="/static/images/1.jpg"
           altText="women's shoes"
-          linkTo="/category/women"
+          linkTo="/category/mujer"
           btnText="mujeres"
         />
         <ImageButtonLink
           imgSource="/static/images/11.jpg"
           altText="men's shoes"
-          linkTo="/category/men"
+          linkTo="/category/hombre"
           btnText="hombres"
         />
       </CatsImageLinks>
-      <Footer />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const StyledGrayNavBar = styled.div`
   background-color: #c8c6cb;
@@ -7,22 +8,26 @@ const StyledGrayNavBar = styled.div`
   margin-top: 0;
   padding: 0.2rem 3rem 0.2rem; 
   
-  a {
+  .navLink {
     text-transform: uppercase;
-    padding-left: 0.5rem;
+    margin-left: 0.5rem;
     text-decoration: none;
     color: #79797a;
     font-weight: bold;
     font-size: 0.75rem;
+  }
+
+  .active {
+    border-bottom: 0.0625rem solid #79797a;
   }
 `;
 
 export default function GrayNavBar() {
   return (
     <StyledGrayNavBar>
-      <a href="/"> Directorio de tiendas </a>
-      <a href="/"> Servicio al cliente </a>
-      <a href="/"> Mi cuenta </a>
+      <NavLink className="navLink" to="/storesDirectory"> Directorio de tiendas </NavLink>
+      <NavLink className="navLink" to="/customerService"> Servicio al cliente </NavLink>
+      <NavLink className="navLink" to="/myAccount"> Mi cuenta </NavLink>
     </StyledGrayNavBar>
   );
 }

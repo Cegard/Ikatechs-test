@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = styled.div`
   padding-left: 3rem;
@@ -13,6 +14,8 @@ const NavBar = styled.div`
     width: 100px;
     object-fit: contain;
   }
+
+
 `;
 
 const BarItem = styled.div`
@@ -32,15 +35,19 @@ const BarItem = styled.div`
     color: #aa8b94;
   }
 
-  a {
+  .link {
     font-weight: bold;
     font-size: 14px;
     text-decoration: none;
     color: #666666;
   }
 
-  nav a {
-    padding-right: 1rem;
+  .navLink {
+    margin-right: 1rem;
+  }
+
+  .active {
+    border-bottom: 0.2rem solid #aa8b94;
   }
 
   input {
@@ -55,7 +62,9 @@ export default function MainNavBar() {
   return(
     <NavBar>
       <BarItem>
-        <img src='/static/images/12.jpg' alt="logo"/>
+        <Link to="/">
+          <img src='/static/images/12.jpg' alt="logo"/>
+        </Link>
         <div>
           <input type="text" placeholder="BUSCAR"/>
           <p> envío gratis para pedidos superiores a $300.000 </p>
@@ -63,13 +72,13 @@ export default function MainNavBar() {
       </BarItem>
       <BarItem>
         <nav>
-          <a href="/category/men"> Hombre </a>
-          <a href="/category/women"> Mujer </a>
-          <a href="/"> blog </a>
-          <a href="/"> historia </a>
-          <a href="/"> tiendas </a>
+          <NavLink className="navLink link" to="/category/mujer"> Mujer </NavLink>
+          <NavLink className="navLink link" to="/category/hombre"> Hombre </NavLink>
+          <NavLink className="navLink link" to="/blog"> blog </NavLink>
+          <NavLink className="navLink link" to="/history"> historia </NavLink>
+          <NavLink className="navLink link" to="/stores"> tiendas </NavLink>
         </nav>
-        <a href="/"> carrito {0} </a>
+        <NavLink className="link" to="/cart"> carrito {0} </NavLink>
       </BarItem>
     </NavBar>
   );

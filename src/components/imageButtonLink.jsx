@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ImgWithLinkButton = styled.div`
   position: relative;
@@ -29,10 +30,10 @@ const ImgWithLinkButton = styled.div`
 export default function ImageButtonLink({imgSource, altText, linkTo, btnText}) {
   return(
     <ImgWithLinkButton>
-      <a href={linkTo}>
+      <Link to={linkTo}>
         <img src={imgSource} alt={altText} />
-      </a>
-      <button class="btn">{btnText}</button>
+      </Link>
+      <button className="btn">{btnText}</button>
     </ImgWithLinkButton>
   );
 } 
