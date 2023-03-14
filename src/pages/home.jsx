@@ -10,7 +10,7 @@ const CatsImageLinks = styled.div`
   margin-right: auto;
 `;
 
-export default function Home() {
+export default function HomePage() {
   return(
     <>
       <Header/>

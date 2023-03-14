@@ -147,7 +147,7 @@ export default function SingleProduct({product}) {
             {
               [...Array(10).keys()]
               .map((size) => {
-                const newSize = 0.5 * size + 5;
+                const newSize = 5 + 0.5 * size;
                 
                 return <a className="size" key={size} onClick={() => { updateSize(newSize) }}>
                   {newSize}
