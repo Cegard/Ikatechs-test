@@ -60,7 +60,7 @@ const BarItem = styled.div`
 
 
 export default function MainNavBar() {
-  const cartItems = useSelector((state) => state.cart.items).length;
+  const itemsCount = useSelector((state) => state.cart.items.length);
 
   return(
     <NavBar>
@@ -81,7 +81,7 @@ export default function MainNavBar() {
           <NavLink className="navLink link" to="/history"> historia </NavLink>
           <NavLink className="navLink link" to="/stores"> tiendas </NavLink>
         </nav>
-        <NavLink className="link" to="/cart"> carrito {cartItems} </NavLink>
+        <NavLink className="link" to="/cart"> carrito {itemsCount} </NavLink>
       </BarItem>
     </NavBar>
   );

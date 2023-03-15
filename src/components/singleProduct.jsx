@@ -125,7 +125,6 @@ const ProductTexts = styled.div`
 export default function SingleProduct({product}) {
 
   const [selectedSize, updateSize] = useState(0);
-  
   const dispatch = useDispatch();
 
   return(

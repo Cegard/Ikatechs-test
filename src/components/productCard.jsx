@@ -11,6 +11,8 @@ const Card = styled.div`
     width: 20rem;
     border-bottom: 0.0625rem solid gray;
     text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
 
     .mainImg {
       width: 18rem;
@@ -52,6 +54,7 @@ export default function ProductCard({product}) {
           <img className="mainImg" src={`/static/images/${product.foto}`} alt={product.nombre} />
           <span className="name">{product.nombre}</span>
           <span className="price">${product.precio}</span>
+          {product.talla? <span className="name">talla {product.talla} </span> : ''}
         </div>
       </Link>
     </Card>
