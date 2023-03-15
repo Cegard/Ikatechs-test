@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useSelector } from 'react-redux';
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = styled.div`
@@ -59,6 +60,8 @@ const BarItem = styled.div`
 
 
 export default function MainNavBar() {
+  const cartItems = useSelector((state) => state.cart.items).length;
+
   return(
     <NavBar>
       <BarItem>
@@ -78,7 +81,7 @@ export default function MainNavBar() {
           <NavLink className="navLink link" to="/history"> historia </NavLink>
           <NavLink className="navLink link" to="/stores"> tiendas </NavLink>
         </nav>
-        <NavLink className="link" to="/cart"> carrito {0} </NavLink>
+        <NavLink className="link" to="/cart"> carrito {cartItems} </NavLink>
       </BarItem>
     </NavBar>
   );

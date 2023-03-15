@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addToCart } from "../reducers/cart/cartSlice";
 
 const ProductHeader = styled.div`
   display: flex;
@@ -97,6 +99,10 @@ const ProductActions = styled.div`
       border: none;
       cursor: pointer;
     }
+
+    button:disabled {
+      background-color: #c8c6ca;
+    }
   }
 `;
 
@@ -119,6 +125,8 @@ const ProductTexts = styled.div`
 export default function SingleProduct({product}) {
 
   const [selectedSize, updateSize] = useState(0);
+  
+  const dispatch = useDispatch();
 
   return(
     <>
@@ -149,14 +157,21 @@ export default function SingleProduct({product}) {
               .map((size) => {
                 const newSize = 5 + 0.5 * size;
                 
-                return <a className="size" key={size} onClick={() => { updateSize(newSize) }}>
+                return <span className="size" key={size} onClick={() => { updateSize(newSize) }}>
                   {newSize}
-                </a>
+                </span>
               })
             }
           </div>
           <div className="addToCart">
-            <button>Añadir al carrito</button>
+            <button disabled={selectedSize === 0} onClick={() => {
+                dispatch(addToCart({...product, talla: selectedSize}));
+
+                alert("Producto añadido al carrito exitosamente");
+              }
+            }>
+              Añadir al carrito
+            </button>
           </div>
         </ProductActions>
       </ProductHeader>
@@ -172,4 +187,4 @@ export default function SingleProduct({product}) {
       </ProductTexts>
     </>
   );
-}
+};

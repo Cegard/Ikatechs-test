@@ -14,7 +14,7 @@ const FourOFour = styled.div`
 export default function NotFound() {
   return (
     <FourOFour>
-      <img  src="/static/images/fof.png" />
+      <img  src="/static/images/fof.png" alt="page not found"/>
     </FourOFour>
   )
 }
